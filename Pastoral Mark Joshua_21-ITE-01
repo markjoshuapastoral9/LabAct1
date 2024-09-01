@@ -1,0 +1,59 @@
+
+<?php
+// Person class definition
+class Person {
+    public $firstName;
+    public $lastName;
+    private $age;
+
+    public function __construct($firstName, $lastName, $age) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->setAge($age);  // Use setAge to initialize the age
+    }
+
+    public function getFullName() {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function setAge($age) {
+        if ($age > 0) {
+            $this->age = $age;
+        }
+    }
+
+    public function getAge() {
+        return $this->age;
+    }
+}
+
+// Car class definition
+class Car {
+    public $make;
+    public $model;
+    protected $year;
+
+    public function __construct($make, $model, $year) {
+        $this->make = $make;
+        $this->model = $model;
+        $this->year = $year;
+    }
+
+    public function getCarInfo() {
+        return $this->make . ' ' . $this->model . ' (' . $this->year . ')';
+    }
+}
+
+// Testing the Person class
+$person = new Person(' Henrik ', 'Fisker', 45 );
+echo 'Full Name: ' . $person->getFullName() . "\n";
+echo 'Age: ' . $person->getAge() . "\n";
+
+// Update the age
+$person->setAge(61);
+echo 'Updated Age: ' . $person->getAge() . "\n";
+
+// Testing the Car class
+$car = new Car(' Fisker', ' Karma', 2010);
+echo 'Car Info: ' . $car->getCarInfo() . "\n";
+?>
